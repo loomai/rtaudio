@@ -10524,7 +10524,7 @@ void RtApi :: convertBuffer( char *outBuffer, char *inBuffer, ConvertInfo &info 
               __m256i x_unpacked = _mm256_cvtepi16_epi32(x);
               __m256 converted =  _mm256_cvtepi32_ps(x_unpacked);
               converted = _mm256_mul_ps(converted, _scale);
-              _mm256_store_ps(out + info.outOffset[j], converted);
+              _mm256_store_ps(out, converted);
               in += info.inJump*8;
               out += info.outJump*8;
           }
